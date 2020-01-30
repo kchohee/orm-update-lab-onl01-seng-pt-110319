@@ -22,6 +22,12 @@ class Student
   #   saves an instance of the Student class to the database and then sets the given students `id` attribute
   #   updates a record if called on an object that is already persisted
   def save
+    sql = <<-SQL
+    INSERT INTO songs (name, grade)
+    VALUES (?, ?)
+  SQL
+  DB[:conn].execute(sql, self.name, self.grade)
+  @id = DB[:conn].execute("SELECT last_insert_rowid() FROM students")[0][0]
   end
   
   # .create
