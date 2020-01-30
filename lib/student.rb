@@ -41,7 +41,7 @@ class Student
       self.update
     else
       sql = <<-SQL
-        INSERT INTO student (name, grade)
+        INSERT INTO students (name, grade)
         VALUES (?, ?)
       SQL
       DB[:conn].execute(sql, self.name, self.grade)
@@ -65,7 +65,7 @@ class Student
   # .find_by_name
   #   returns an instance of student that matches the name from the DB
   def self.find_by_name(name)
-    sql = "SELECT * FROM songs WHERE name = ?"
+    sql = "SELECT * FROM students WHERE name = ?"
     result = DB[:conn].execute(sql, name)[0]
     Student.new(result[0], result[1], result[2])
   end
