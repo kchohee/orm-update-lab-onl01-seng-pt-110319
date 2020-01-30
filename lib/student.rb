@@ -59,7 +59,8 @@ class Student
   
   # .new_from_db
   #   creates an instance with corresponding attribute values
-  def self.new_from_db
+  def self.new_from_db(row)
+    
   end
   
   # .find_by_name
