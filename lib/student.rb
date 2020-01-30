@@ -27,10 +27,10 @@ class Student
   # .drop_table
   #   drops the students table from the database
   def self.drop_table
-    sql = <<- SQL
-      DROP TABLE students
-      SQL
-      DB[:conn].execute(sql)
+    sql = <<-SQL
+    DROP TABLE students
+    SQL
+    DB[:conn].execute(sql)
   end
 
   #save
